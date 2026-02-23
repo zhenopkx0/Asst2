@@ -1,73 +1,97 @@
+/* Reset */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
 }
 
+/* Background */
 body {
-  background: linear-gradient(135deg, #4e73df, #1cc88a);
   min-height: 100vh;
+  background: radial-gradient(circle at top, #1a001f, #000000 70%);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-form {
-  background: white;
-  padding: 2rem 2.5rem;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  width: 320px;
-}
-
-h1 {
-  position: absolute;
-  top: 60px;
   color: white;
-  font-size: 3rem;
-  letter-spacing: 1px;
 }
 
+/* Title */
+h1 {
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  letter-spacing: 3px;
+  color: #c84dff;
+  text-shadow:
+    0 0 10px #c84dff,
+    0 0 20px #9d00ff,
+    0 0 40px #7b00ff;
+}
+
+/* Form Card */
+form {
+  background: rgba(20, 0, 30, 0.85);
+  padding: 2.5rem 3rem;
+  border-radius: 15px;
+  width: 350px;
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 0 20px rgba(157, 0, 255, 0.4),
+    0 0 60px rgba(157, 0, 255, 0.2);
+  border: 1px solid rgba(200, 77, 255, 0.3);
+}
+
+/* Labels */
 label {
   font-size: 0.85rem;
-  color: #333;
-  font-weight: 500;
+  letter-spacing: 1px;
+  color: #c84dff;
 }
 
+/* Inputs */
 input[type="text"] {
   width: 100%;
-  padding: 8px 10px;
-  margin: 6px 0 14px 0;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  transition: 0.2s ease;
+  padding: 10px;
+  margin: 8px 0 18px 0;
+  background: #0d0014;
+  border: 1px solid #7b00ff;
+  border-radius: 8px;
+  color: white;
   font-size: 0.9rem;
+  transition: 0.3s ease;
 }
 
+/* Glow on focus */
 input[type="text"]:focus {
-  border-color: #4e73df;
   outline: none;
-  box-shadow: 0 0 0 2px rgba(78, 115, 223, 0.2);
+  border-color: #c84dff;
+  box-shadow: 0 0 10px #9d00ff;
 }
 
+/* Button */
 input[type="submit"] {
   width: 100%;
-  padding: 10px;
-  background: #4e73df;
-  color: white;
+  padding: 12px;
+  background: linear-gradient(90deg, #7b00ff, #c84dff);
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   font-weight: bold;
+  letter-spacing: 1px;
+  color: white;
   cursor: pointer;
-  transition: 0.2s ease;
+  transition: 0.3s ease;
 }
 
+/* Button hover effect */
 input[type="submit"]:hover {
-  background: #2e59d9;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow:
+    0 0 15px #c84dff,
+    0 0 30px #9d00ff;
 }
 
+/* Button click effect */
 input[type="submit"]:active {
   transform: translateY(0);
 }

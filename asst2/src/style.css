@@ -1,19 +1,73 @@
-.form {
-  background-color: #f0f0f0;
-  border: 1px solid black;
-  border-radius: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-family:'Courier New', Courier, monospace;
-  color:#1b4469;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.title {
-  font-size: 20px;
-  text-align: center;
-  font-family:'Courier New', Courier, monospace;
-  align-self: center;
-  color:#1b4469;
+body {
+  background: linear-gradient(135deg, #4e73df, #1cc88a);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  background: white;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  width: 320px;
+}
+
+h1 {
+  position: absolute;
+  top: 60px;
+  color: white;
+  font-size: 3rem;
+  letter-spacing: 1px;
+}
+
+label {
+  font-size: 0.85rem;
+  color: #333;
+  font-weight: 500;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 8px 10px;
+  margin: 6px 0 14px 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  transition: 0.2s ease;
+  font-size: 0.9rem;
+}
+
+input[type="text"]:focus {
+  border-color: #4e73df;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(78, 115, 223, 0.2);
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background: #4e73df;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+input[type="submit"]:hover {
+  background: #2e59d9;
+  transform: translateY(-2px);
+}
+
+input[type="submit"]:active {
+  transform: translateY(0);
 }

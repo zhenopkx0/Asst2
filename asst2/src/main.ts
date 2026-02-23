@@ -1,24 +1,28 @@
 import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+const form = document.getElementById("form") as HTMLFormElement;
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+
+    const a: number = Number(formData.get("a"));
+    const b: number = Number(formData.get("b"));
+    const c: number = Number(formData.get("c"));
+    const d: number = Number(formData.get("d"));
+
+    const discriminant = b * b - 4 * a * c;
+
+    if (discriminant < 0) {
+        (document.getElementById("result") as HTMLInputElement).value = "No Roots";
+    } else if (discriminant > 0) {
+        const rootOne = (-b + Math.sqrt(discriminant)) / (2 * a);
+        const rootTwo = (-b - Math.sqrt(discriminant)) / (2 * a);
+        (document.getElementById("result") as HTMLInputElement).value = `x1=${rootOne}, x2=${rootTwo}`;
+    } else {
+        const rootOne = (-b + Math.sqrt(discriminant)) / (2 * a);
+        (document.getElementById("result") as HTMLInputElement).value = `x=${rootOne}`;
+    }
+})
+

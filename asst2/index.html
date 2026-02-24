@@ -1,24 +1,30 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>asst2</title>
-  </head>
-  <body>
-    <h1>CUBIC SOLVER</h1>
-    <form class = "form">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>asst2</title>
+</head>
+
+<body>
+  <h1>CUBIC SOLVER</h1>
+  <div>
+    <form class="form">
       <label for="a">a-value:</label><br>
-      <input type = "text" id ="a"><br>
+      <input type="text" id="a"><br>
       <label for="b">b-value:</label><br>
-      <input type = "text" id="b"><br>
+      <input type="text" id="b"><br>
       <label for="c">c-value:</label><br>
-      <input type = "text" id = "c"><br>
+      <input type="text" id="c"><br>
       <label for="d">d-value:</label><br>
-      <input type = "text" id = "d"><br>
-      <input type = "submit" value = "Solve!" id="button">
+      <input type="text" id="d"><br>
+      <input type="submit" value="Solve!" id="button">
     </form>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+    <canvas id="graph" width="600" height="400"></canvas>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
 </html>

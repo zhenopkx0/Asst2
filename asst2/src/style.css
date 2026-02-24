@@ -3,95 +3,107 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
 }
 
-/* Background */
+/* Body */
 body {
   min-height: 100vh;
-  background: radial-gradient(circle at top, #1a001f, #000000 70%);
+  background: #fef9f4; /* soft warm background */
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  color: white;
+  color: #333;
+  padding: 30px 20px;
 }
 
 /* Title */
 h1 {
-  margin-bottom: 30px;
   font-size: 2.5rem;
-  letter-spacing: 3px;
-  color: #c84dff;
-  text-shadow:
-    0 0 10px #c84dff,
-    0 0 20px #9d00ff,
-    0 0 40px #7b00ff;
+  margin-bottom: 30px;
+  color: #ff87c0; /* pastel pink title */
+  text-align: center;
 }
 
-/* Form Card */
-form {
-  background: rgba(20, 0, 30, 0.85);
-  padding: 2.5rem 3rem;
-  border-radius: 15px;
-  width: 350px;
-  backdrop-filter: blur(10px);
-  box-shadow:
-    0 0 20px rgba(157, 0, 255, 0.4),
-    0 0 60px rgba(157, 0, 255, 0.2);
-  border: 1px solid rgba(200, 77, 255, 0.3);
+/* Container for side-by-side layout */
+.container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* Form styling */
+form.form {
+  background: #fff5ff;
+  padding: 2rem 2.5rem;
+  border-radius: 25px;
+  box-shadow: 0 10px 20px rgba(255, 135, 192, 0.2);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Labels */
 label {
-  font-size: 0.85rem;
-  letter-spacing: 1px;
-  color: #c84dff;
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #ff87c0;
 }
 
 /* Inputs */
 input[type="text"] {
+  padding: 10px 12px;
+  border-radius: 15px;
+  border: 1px solid #ffc0cb;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  transition: 0.2s;
   width: 100%;
-  padding: 10px;
-  margin: 8px 0 18px 0;
-  background: #0d0014;
-  border: 1px solid #7b00ff;
-  border-radius: 8px;
-  color: white;
-  font-size: 0.9rem;
-  transition: 0.3s ease;
+  background: #fff0f5;
 }
 
-/* Glow on focus */
 input[type="text"]:focus {
+  border-color: #87cefa; /* pastel blue focus */
   outline: none;
-  border-color: #c84dff;
-  box-shadow: 0 0 10px #9d00ff;
+  box-shadow: 0 0 10px rgba(135, 206, 250, 0.2);
 }
 
-/* Button */
+/* Submit Button */
 input[type="submit"] {
-  width: 100%;
   padding: 12px;
-  background: linear-gradient(90deg, #7b00ff, #c84dff);
+  border-radius: 15px;
   border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  color: white;
+  background: #ffeb8f; /* pastel yellow button */
+  color: #333;
+  font-weight: 600;
   cursor: pointer;
   transition: 0.3s ease;
 }
 
-/* Button hover effect */
 input[type="submit"]:hover {
-  transform: translateY(-3px);
-  box-shadow:
-    0 0 15px #c84dff,
-    0 0 30px #9d00ff;
+  background: #ffd966;
+  transform: translateY(-2px);
 }
 
-/* Button click effect */
-input[type="submit"]:active {
-  transform: translateY(0);
+/* Canvas styling */
+canvas#graph {
+  flex: 2;
+  background: #ffffff;
+  border-radius: 25px;
+  box-shadow: 0 10px 25px rgba(135, 206, 250, 0.15);
+}
+
+/* Responsive layout */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  canvas#graph {
+    width: 90%;
+    height: 300px;
+  }
 }

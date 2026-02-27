@@ -11,15 +11,15 @@
 <body>
   <h1>CUBIC SOLVER</h1>
   <div>
-    <form class="form">
+    <form id="form" class="form">
       <label for="a">a-value:</label><br>
-      <input type="text" id="a"><br>
+      <input type="text" id="a" name="a"><br>
       <label for="b">b-value:</label><br>
-      <input type="text" id="b"><br>
+      <input type="text" id="b" name="b"><br>
       <label for="c">c-value:</label><br>
-      <input type="text" id="c"><br>
+      <input type="text" id="c" name="c"><br>
       <label for="d">d-value:</label><br>
-      <input type="text" id="d"><br>
+      <input type="text" id="d" name="d"><br>
       <input type="submit" value="Solve!" id="button">
     </form>
     <canvas id="graph" width="600" height="400"></canvas>
@@ -34,20 +34,20 @@
       <td id="q-result">VALUE</td>
     </tr>
     <tr>
-      <td>Discriminant</td>
-      <td>VALUE</td>
+      <td >Discriminant</td>
+      <td id="discriminant-result">VALUE</td>
     </tr>
     <tr>
       <td>Root 1</td>
-      <td>VALUE</td>
+      <td id="root1-result">VALUE</td>
     </tr>
     <tr>
       <td>Root 2</td>
-      <td>VALUE</td>
+      <td id="root2-result">VALUE</td>
     </tr>
     <tr>
       <td>Root 2</td>
-      <td>VALUE</td>
+      <td id="root3-result">VALUE</td>
     </tr>
   </table>
 

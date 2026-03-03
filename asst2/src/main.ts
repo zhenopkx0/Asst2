@@ -16,6 +16,27 @@ function DrawCoordinateAxes() {
   }
 }
 
+function DrawGrid() {
+  if (ctx) {
+    for ( let i = -4; i < canvas.width; i = i+15) {
+      ctx.beginPath();
+      ctx.moveTo(i, 0);
+      ctx.lineTo(i, canvas.height);
+      ctx.strokeStyle = "gray";
+      ctx.lineWidth= 1.5;
+      ctx.stroke();
+    }
+    for ( let i = 4; i < canvas.height; i = i+15) {
+      ctx.beginPath();
+      ctx.moveTo(0, i);
+      ctx.lineTo(canvas.width, i);
+      ctx.strokeStyle = "gray";
+      ctx.lineWidth= 1.5;
+      ctx.stroke();
+  }
+}
+}
+
 function DrawCubicFunction(a: number, b: number, c: number, d: number) {
   if (ctx) { // i dont even know whats happening here i just tabbed it in 
     ctx.beginPath();
@@ -106,3 +127,4 @@ form?.addEventListener("submit", (event) => {
 })
 
 DrawCoordinateAxes();
+DrawGrid();

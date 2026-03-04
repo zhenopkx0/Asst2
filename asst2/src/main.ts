@@ -37,32 +37,11 @@ function DrawGrid() {
 }
 }
 
-/*
-function DrawCubicFunction(a: number, b: number, c: number, d: number) {
-  if (ctx) { 
-    ctx.beginPath();
-    for (let x = -canvas.width / 2; x <= canvas.width / 2; x++) {
-      const y = a * Math.pow(x, 3) + b * Math.pow(x, 2) + c * x + d;
-      const canvasX = x + canvas.width / 2;
-      const canvasY = canvas.height / 2 - y;
-      if (x === -canvas.width / 2) {
-        ctx.moveTo(canvasX, canvasY);
-      } else {
-        ctx.lineTo(canvasX, canvasY);
-      }
-    }
-    ctx.strokeStyle = "#66ccff";
-    ctx.lineWidth = 2;
-    ctx.stroke();
-  }
-}
-  */
-
 function DrawCubicFunction(a: number, b: number, c: number, d: number) {
   if (ctx) { 
     ctx.translate(canvas.width / 2, canvas.height / 2);
     ctx.beginPath();
-    for (let x = -250; x <= canvas.width; x=x+0.1) {
+    for (let x = -250; x <= 250; x=x+0.1) {
       const y = a * Math.pow(x, 3) + b * Math.pow(x, 2) + c * x + d;
       const canvasX = x;
       const canvasY = -y;
@@ -80,18 +59,21 @@ function DrawCubicFunction(a: number, b: number, c: number, d: number) {
 
 function CicleRoots(a: number, b: number, c: number, d: number) {
   if (ctx) {
-    ctx.translate(canvas.width / 2, canvas.height / 2);
     ctx.beginPath();
-    for (let x = -250; x <= canvas.width; x=x+0.1) {
+    for (let x = -250; x <= 250; x=x+0.1) {
       const y = a * Math.pow(x, 3) + b * Math.pow(x, 2) + c * x + d;
       const canvasX = x;
       const canvasY = -y;
-      if (Math.abs(canvasY) <= 0.000001) {
+      if (Math.abs(canvasY) <= 0.0001) {
         ctx.arc(canvasX*45, canvasY*45, 5, 0, 2 * Math.PI);
       }
     }
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
   }
 }
+
 
 const form = document.getElementById("form") as HTMLFormElement;
 
@@ -162,6 +144,11 @@ form?.addEventListener("submit", (event) => {
   }
   DrawCubicFunction(a, b, c, d);
   CicleRoots(a, b, c, d);
+
+  //displaying the equation :p
+  const cubic = a +'x^3 + ' + b + 'x^2 + ' + c + "x + " + d;
+  const equation = document.getElementById("equation-result") as HTMLParagraphElement;
+  equation.textContent = cubic.toString();
 })
 
 DrawGrid();

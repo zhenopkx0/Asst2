@@ -18,7 +18,7 @@ function DrawCoordinateAxes() {
 
 function DrawGrid() {
   if (ctx) {
-    for ( let i = 25; i < canvas.width; i = i+45) {
+    for ( let i = 25; i < canvas.width; i += 45) {
       ctx.beginPath();
       ctx.moveTo(i, 0);
       ctx.lineTo(i, canvas.height);
@@ -26,11 +26,11 @@ function DrawGrid() {
       ctx.lineWidth= 1.5;
       ctx.stroke();
     }
-    for ( let i = -10; i < canvas.height; i = i+45) {
+    for ( let i = -10; i < canvas.height; i += 45) {
       ctx.beginPath();
       ctx.moveTo(0, i);
       ctx.lineTo(canvas.width, i);
-      ctx.strokeStyle = "#5F9EA0";
+      ctx.strokeStyle = "#FFA8C5";
       ctx.lineWidth= 1.5;
       ctx.stroke();
   }

@@ -18,27 +18,28 @@ function DrawCoordinateAxes() {
 
 function DrawGrid() {
   if (ctx) {
-    for ( let i = -4; i < canvas.width; i = i+15) {
+    for ( let i = 25; i < canvas.width; i = i+45) {
       ctx.beginPath();
       ctx.moveTo(i, 0);
       ctx.lineTo(i, canvas.height);
-      ctx.strokeStyle = "gray";
+      ctx.strokeStyle = "#5F9EA0";
       ctx.lineWidth= 1.5;
       ctx.stroke();
     }
-    for ( let i = 4; i < canvas.height; i = i+15) {
+    for ( let i = -10; i < canvas.height; i = i+45) {
       ctx.beginPath();
       ctx.moveTo(0, i);
       ctx.lineTo(canvas.width, i);
-      ctx.strokeStyle = "gray";
+      ctx.strokeStyle = "#5F9EA0";
       ctx.lineWidth= 1.5;
       ctx.stroke();
   }
 }
 }
 
+/*
 function DrawCubicFunction(a: number, b: number, c: number, d: number) {
-  if (ctx) { // i dont even know whats happening here i just tabbed it in 
+  if (ctx) { 
     ctx.beginPath();
     for (let x = -canvas.width / 2; x <= canvas.width / 2; x++) {
       const y = a * Math.pow(x, 3) + b * Math.pow(x, 2) + c * x + d;
@@ -53,6 +54,42 @@ function DrawCubicFunction(a: number, b: number, c: number, d: number) {
     ctx.strokeStyle = "#66ccff";
     ctx.lineWidth = 2;
     ctx.stroke();
+  }
+}
+  */
+
+function DrawCubicFunction(a: number, b: number, c: number, d: number) {
+  if (ctx) { 
+    ctx.translate(canvas.width / 2, canvas.height / 2);
+    ctx.beginPath();
+    for (let x = -250; x <= canvas.width; x=x+0.1) {
+      const y = a * Math.pow(x, 3) + b * Math.pow(x, 2) + c * x + d;
+      const canvasX = x;
+      const canvasY = -y;
+      if (x === -canvas.width / 2) {
+        ctx.moveTo(canvasX*45, canvasY*45);
+      } else {
+        ctx.lineTo(canvasX*45, canvasY*45);
+      }
+    }
+    ctx.strokeStyle = "#66ccff";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  }
+}
+
+function CicleRoots(a: number, b: number, c: number, d: number) {
+  if (ctx) {
+    ctx.translate(canvas.width / 2, canvas.height / 2);
+    ctx.beginPath();
+    for (let x = -250; x <= canvas.width; x=x+0.1) {
+      const y = a * Math.pow(x, 3) + b * Math.pow(x, 2) + c * x + d;
+      const canvasX = x;
+      const canvasY = -y;
+      if (Math.abs(canvasY) <= 0.000001) {
+        ctx.arc(canvasX*45, canvasY*45, 5, 0, 2 * Math.PI);
+      }
+    }
   }
 }
 
@@ -124,7 +161,8 @@ form?.addEventListener("submit", (event) => {
     }
   }
   DrawCubicFunction(a, b, c, d);
+  CicleRoots(a, b, c, d);
 })
 
-DrawCoordinateAxes();
 DrawGrid();
+DrawCoordinateAxes();

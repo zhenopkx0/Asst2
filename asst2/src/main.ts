@@ -3,7 +3,7 @@ import './style.css'
 const canvas = document.getElementById("graph") as HTMLCanvasElement;
 const ctx = canvas.getContext("2d");
 
-function DrawCoordinateAxes() {
+function drawCoordinateAxes() {
   if (ctx) {
     ctx.beginPath();
     ctx.moveTo(0, canvas.height / 2);
@@ -16,7 +16,7 @@ function DrawCoordinateAxes() {
   }
 }
 
-function DrawGrid() {
+function drawGrid() {
   if (ctx) {
     for ( let i = 25; i < canvas.width; i += 45) {
       ctx.beginPath();
@@ -37,7 +37,7 @@ function DrawGrid() {
 }
 }
 
-function DrawCubicFunction(a: number, b: number, c: number, d: number) {
+function drawCubicFunction(a: number, b: number, c: number, d: number) {
   if (ctx) { 
     ctx.translate(canvas.width / 2, canvas.height / 2);
     ctx.beginPath();
@@ -57,7 +57,7 @@ function DrawCubicFunction(a: number, b: number, c: number, d: number) {
   }
 }
 
-function CicleRoots(a: number, b: number, c: number, d: number) {
+function circleRoots(a: number, b: number, c: number, d: number) {
   if (ctx) {
     ctx.beginPath();
     for (let x = -250; x <= 250; x=x+0.1) {
@@ -142,8 +142,8 @@ form?.addEventListener("submit", (event) => {
       rootThreeResult.textContent = rootTwo.toString();
     }
   }
-  DrawCubicFunction(a, b, c, d);
-  CicleRoots(a, b, c, d);
+  drawCubicFunction(a, b, c, d);
+  circleRoots(a, b, c, d);
 
   //displaying the equation :p
   const cubic = a +'x^3 + ' + b + 'x^2 + ' + c + "x + " + d;
@@ -151,5 +151,5 @@ form?.addEventListener("submit", (event) => {
   equation.textContent = cubic.toString();
 })
 
-DrawGrid();
-DrawCoordinateAxes();
+drawGrid();
+drawCoordinateAxes();

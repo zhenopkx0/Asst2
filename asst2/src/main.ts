@@ -142,8 +142,20 @@ form?.addEventListener("submit", (event) => {
       rootThreeResult.textContent = rootTwo.toString();
     }
   }
-  drawCubicFunction(a, b, c, d);
-  circleRoots(a, b, c, d);
+  //drawCubicFunction(a, b, c, d);
+
+  function updateGraph() {
+    if (ctx) {
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawGrid(); 
+    drawCoordinateAxes();
+    drawCubicFunction(a, b, c, d); 
+    circleRoots(a, b, c, d);
+    }
+  }
+
+  updateGraph();
 
   //displaying the equation :p
   const cubic = a +'x^3 + ' + b + 'x^2 + ' + c + "x + " + d;

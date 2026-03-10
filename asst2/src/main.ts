@@ -91,16 +91,13 @@ form?.addEventListener("submit", (event) => {
   const q: number = (2 * b * b * b - 9 * a * b * c + 27 * a * a * d) / (27 * a * a * a);
 
   // Display p and q values
-  const pResult = document.getElementById("p-result") as HTMLParagraphElement;
-  pResult.textContent = p.toString();
+  (document.getElementById("p-result") as HTMLParagraphElement).textContent = `${p}`;
 
-  const qResult = document.getElementById("q-result") as HTMLParagraphElement;
-  qResult.textContent = q.toString();
+  (document.getElementById("q-result") as HTMLParagraphElement).textContent = `${q}`;
 
   const discriminant: number = (q / 2) * (q / 2) + (p / 3) * (p / 3) * (p / 3);
 
-  const discriminantResult = document.getElementById("discriminant-result") as HTMLParagraphElement;
-  discriminantResult.textContent = discriminant.toString();
+  (document.getElementById("discriminant-result") as HTMLParagraphElement).textContent = `${discriminant}`;
 
   const theta: number = (1/3)*Math.acos(-q / (2 * Math.sqrt(-(p / 3) * (p / 3) * (p / 3))));
 
@@ -108,41 +105,31 @@ form?.addEventListener("submit", (event) => {
     const rootOne = 2 * Math.sqrt(-p / 3) * Math.cos(theta) - b / (3 * a);
     const rootTwo = 2 * Math.sqrt(-p / 3) * Math.cos(theta + (2 * Math.PI / 3)) - b / (3 * a);
     const rootThree = 2 * Math.sqrt(-p / 3) * Math.cos(theta + (4 * Math.PI / 3)) - b / (3 * a);
-    const rootOneResult = document.getElementById("root1-result") as HTMLParagraphElement;
-    rootOneResult.textContent = rootOne.toString();
-    const rootTwoResult = document.getElementById("root2-result") as HTMLParagraphElement;
-    rootTwoResult.textContent = rootTwo.toString();
-    const rootThreeResult = document.getElementById("root3-result") as HTMLParagraphElement;
-    rootThreeResult.textContent = rootThree.toString();
+    (document.getElementById("root1-result") as HTMLParagraphElement).textContent = `${rootOne}`;
+    (document.getElementById("root2-result") as HTMLParagraphElement).textContent = `${rootTwo}`;
+    (document.getElementById("root3-result") as HTMLParagraphElement).textContent = `${rootThree}`;
+
   } else if (discriminant > 0) {
     const rootOne = Math.cbrt(-q / 2 + Math.sqrt(discriminant)) + Math.cbrt(-q / 2 - Math.sqrt(discriminant)) - b / (3 * a);
-    const rootOneResult = document.getElementById("root1-result") as HTMLParagraphElement;
-    rootOneResult.textContent = rootOne.toString();
-    const rootTwoResult = document.getElementById("root2-result") as HTMLParagraphElement;
-    rootTwoResult.textContent = "Complex";
-    const rootThreeResult = document.getElementById("root3-result") as HTMLParagraphElement;
-    rootThreeResult.textContent = "Complex";
+    (document.getElementById("root1-result") as HTMLParagraphElement).textContent = `${rootOne}`;
+    (document.getElementById("root2-result") as HTMLParagraphElement).textContent = `${"Complex"}`;
+    (document.getElementById("root3-result") as HTMLParagraphElement).textContent = `${"Complex"}`;
+
   } else {
     if (q === 0 && p === 0) {
       const rootOne = Math.cbrt((-q / 2) + Math.sqrt(discriminant)) + Math.cbrt((-q / 2) - Math.sqrt(discriminant)) - b / (3 * a);
-      const rootOneResult = document.getElementById("root1-result") as HTMLParagraphElement;
-      rootOneResult.textContent = rootOne.toString();
-      const rootTwoResult = document.getElementById("root2-result") as HTMLParagraphElement;
-      rootTwoResult.textContent = rootOne.toString();
-      const rootThreeResult = document.getElementById("root3-result") as HTMLParagraphElement;
-      rootThreeResult.textContent = rootOne.toString();
+      (document.getElementById("root1-result") as HTMLParagraphElement).textContent = `${rootOne}`;
+      (document.getElementById("root2-result") as HTMLParagraphElement).textContent = `${rootOne}`;
+      (document.getElementById("root3-result") as HTMLParagraphElement).textContent = `${rootOne}`;
+
     } else {
       const rootOne = Math.cbrt((-q / 2) + Math.sqrt(discriminant)) + Math.cbrt((-q / 2) - Math.sqrt(discriminant)) - b / (3 * a); // Cardano
       const rootTwo = -Math.cbrt(-q / 2) - b / (3 * a); // Single root
-      const rootOneResult = document.getElementById("root1-result") as HTMLParagraphElement;
-      rootOneResult.textContent = rootOne.toString();
-      const rootTwoResult = document.getElementById("root2-result") as HTMLParagraphElement;
-      rootTwoResult.textContent = rootTwo.toString();
-      const rootThreeResult = document.getElementById("root3-result") as HTMLParagraphElement;
-      rootThreeResult.textContent = rootTwo.toString();
+      (document.getElementById("root1-result") as HTMLParagraphElement).textContent = `${rootOne}`;
+      (document.getElementById("root2-result") as HTMLParagraphElement).textContent = `${rootTwo}`;
+      (document.getElementById("root3-result") as HTMLParagraphElement).textContent = `${rootTwo}`;
     }
   }
-  //drawCubicFunction(a, b, c, d);
 
   function updateGraph() {
     if (ctx) {
